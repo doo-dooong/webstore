@@ -14,6 +14,10 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 	
+	public List<Product> getAllProducts() {
+		return productRepository.getAllProducts();
+	}
+	
 	public void updateAllStock() {      
 		List<Product> allProducts = productRepository.getAllProducts();
   
