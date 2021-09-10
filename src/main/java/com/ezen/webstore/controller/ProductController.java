@@ -17,7 +17,7 @@ public class ProductController {
 	@Autowired
 	private ProductRepository productRepository;
 
-	@RequestMapping("/products") 
+	@RequestMapping("/market/products") 
 	public String list(Model model) { 
 		model.addAttribute("products", productRepository.getAllProducts());
 		return "products";
@@ -29,6 +29,6 @@ public class ProductController {
 	@RequestMapping("/update/stock")
 	public String updateStock(Model model) { 
 		productService.updateAllStock();
-		return "redirect:/products";
+		return "redirect:/market/products";
 	}	
 }

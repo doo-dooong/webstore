@@ -20,7 +20,7 @@
 		</div>
 	</section>
 	<section class = "container">
-		<a href = "/webstore/products">상품페이지</a>
+		<a href = "/webstore/market/products">상품페이지</a>
 		<hr>
 	</section>
 </body>

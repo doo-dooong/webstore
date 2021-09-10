@@ -18,9 +18,11 @@
   	</div>
 	</section>
 	<section class = "container">
-		<a href = "/webstore/welcome">홈으로</a>
+		<a href = "/webstore/">홈으로</a>
 		<hr>
 		<a href = "/webstore/update/stock">재고 1000개 이하의 제품 재고 추가</a>
+		<hr>
+		<a href = "/webstore/customers">고객 리스트</a>
 		<hr>
 	</section>
 	<section class="container">
@@ -32,7 +34,7 @@
 							<h3>${product.name}</h3>
 							<p>${product.description}</p>
 							<p>₩${product.unitPriceStr}</p>
-							<p>제고 수량 : ${product.unitsInStock}</p>
+							<p>재고 수량 : ${product.unitsInStock}</p>
 						</div>
 					</div>
 				</div>
