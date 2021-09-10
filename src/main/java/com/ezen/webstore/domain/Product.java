@@ -39,9 +39,6 @@ public class Product implements Serializable {
 
 	// 여기 getters와 setters 를 추가
 	
-	
-	
-	
 	public void setUnitPrice(BigDecimal unitPrice) {
 		this.unitPrice = unitPrice;
 		DecimalFormat df = new DecimalFormat("#,###");

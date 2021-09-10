@@ -17,7 +17,12 @@
 			</div>
   	</div>
 	</section>
-
+	<section class = "container">
+		<a href = "/webstore/welcome">홈으로</a>
+		<hr>
+		<a href = "/webstore/update/stock">재고 1000개 이하의 제품 재고 추가</a>
+		<hr>
+	</section>
 	<section class="container">
 		<div class="row">
 		<c:forEach items="${products}" var="product">
