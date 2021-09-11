@@ -52,5 +52,21 @@ public class MariaProductRepository implements ProductRepository{
   	
   	jdbcTemplate.update(SQL, params); 
   }
+  
+  public List<Product> getProductsByCategory(String category) {
+		String SQL = "SELECT * FROM PRODUCTS " + 
+					"WHERE LCASE(CATEGORY) = :category";
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("category", category.toLowerCase());
+		return jdbcTemplate.query(SQL, params, new ProductMapper());
+	}
+
+  public List<Product> getProductsByFilter(
+			Map<String, List<String>> filterParams) {
+		String SQL = "SELECT * FROM PRODUCTS WHERE CATEGORY "
+				+ "IN (:categories) AND MANUFACTURER IN (:brands)";
+		return jdbcTemplate.query(SQL, filterParams, new ProductMapper());
+	}
+
 
 }
