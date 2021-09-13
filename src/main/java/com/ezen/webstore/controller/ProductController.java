@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.webstore.domain.repository.ProductRepository;
 import com.ezen.webstore.service.ProductService;
@@ -23,7 +24,7 @@ public class ProductController {
 	@Autowired
 	private ProductRepository productRepository;
 
-	@RequestMapping("market//products") 
+	@RequestMapping("market/products") 
 	public String list(Model model) { 
 		model.addAttribute("products", productRepository.getAllProducts());
 		return "products";
@@ -38,7 +39,7 @@ public class ProductController {
 		return "redirect:/market/products";
 	}
 	
-	@RequestMapping("market/products/{category}")
+	@RequestMapping("products/{category}")
 	public String getProductsByCategory(Model model, @PathVariable("category") String productCategory) {
 	// @PathVariable String category) {
 		model.addAttribute("products",
@@ -47,12 +48,18 @@ public class ProductController {
 		return "products";
 	}
 	
-	@RequestMapping("/market/products/filter/{params}") // 6절 실습
-	public String getProductsByFilter(@MatrixVariable(pathVar="params") 
-			Map<String,List<String>> filterParams, Model model) {
+	@RequestMapping("products/filter/{params}") // 6절 실습
+	public String getProductsByFilter(@MatrixVariable(pathVar = "params") Map<String, List<String>> filterParams, Model model) {
 		model.addAttribute("products", 
 			productService.getProductsByFilter(filterParams));
 		return "products";
 	}
 	
+	@RequestMapping("market/product") // 7절 실습
+	public String getProductById(
+			@RequestParam("id") String productId, Model model) {
+		model.addAttribute("product", 
+			productService.getProductById(productId));
+		return "product";
+	}	
 }

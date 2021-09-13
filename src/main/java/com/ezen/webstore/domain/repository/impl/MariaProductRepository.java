@@ -68,5 +68,12 @@ public class MariaProductRepository implements ProductRepository{
 		return jdbcTemplate.query(SQL, filterParams, new ProductMapper());
 	}
 
+  public Product getProductById(String productID) {
+		String SQL = "SELECT * FROM PRODUCTS WHERE ID = :id";
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("id", productID);
+		
+		return jdbcTemplate.queryForObject(SQL, params, new ProductMapper());
+	}
 
 }

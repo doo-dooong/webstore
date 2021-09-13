@@ -39,4 +39,8 @@ public class ProductServiceImpl implements ProductService {
 		return productRepository.getProductsByFilter(filterParams);
 	}
 
+	public Product getProductById(String productID) {
+		return productRepository.getProductById(productID);
+	}
+
 }
