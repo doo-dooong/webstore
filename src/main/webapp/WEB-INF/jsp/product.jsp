@@ -36,9 +36,13 @@
 					<strong>재고 수량 </strong> : ${product.unitsInStock}
 				</p>
 				<p>
-					<strong>상품 단가 </strong> : ${product.unitPriceStr}원</p>
+					<strong>상품 단가 </strong> : ${product.unitPriceStr}원
+				</p>
 				<p>
-					<a href="#" class="btn btn-warning btn-large"> <span
+					<spring:url value="/market/products" var="url" htmlEscape="true" />
+					<a href="${url}" class="btn btn-default"> <span
+						class="glyphicon-hand-left glyphicon"></span>뒤로가기
+					</a> <a href="#" class="btn btn-warning btn-large"> <span
 						class="glyphicon-shopping-cart glyphicon"></span>주문하기
 					</a>
 				</p>
@@ -46,4 +50,4 @@
 		</div>
 	</section>
 </body>
-</html> 
+</html>
